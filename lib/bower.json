@@ -1,0 +1,20 @@
+{
+  "name": "lib",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "utleroy <bryanhankins@me.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/nss-evening-cohort-04/modernjs-quiz-utleroy",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.1.1"
+  }
+}
