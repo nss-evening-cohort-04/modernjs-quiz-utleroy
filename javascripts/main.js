@@ -8,7 +8,7 @@ $(document).ready(function() {
 	function getRobots() {
 		return new Promise((resolve, reject) => {
 			$.ajax({
-				url: "./robot.json"
+				url: "../robots.json"
 			}).done(function(data) {
 				resolve(data);
 			}).fail(function(xhr, status, error) {
@@ -17,7 +17,7 @@ $(document).ready(function() {
 		})
 	}
 	getRobots().then(function(dataPass) {
-		console.log("generate array", robots);
+		console.log(dataPass)
 	});
 		let robotData = "";
 		var currentRobot;
@@ -28,5 +28,4 @@ $(document).ready(function() {
 			robotData += `<div>Robots</div>`;
 		}
 		robotContent.html(robotData)
-		 console.log("robot data", robotData);
 });
