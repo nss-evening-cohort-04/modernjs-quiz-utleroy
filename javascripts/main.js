@@ -1,29 +1,24 @@
 "use strict";
 
 $(document).ready(function() {
-	let robotContent = $("#robots");
-	let robots = [];
 
-	function RobotsPopulate() {
-		return new Promise((resolve, reject) => {
-			$.ajax({
-				url: "../robots.json"
-			}).done(function(data) {
-				resolve(data);
-			}).fail(function(xhr, status, error) {
-				reject(error);
-			})
-		})
-	}
-	RobotsPopulate().then(function(dataPass) {
-		console.log(dataPass)
+	let player1Name = "";
+	let player2Name = "";
+	let results = $("#fightResults");
+	let fightBtn = $("#fight-btn");
+	let player1 = {};
+	let player2 = {};
+
+	$(fightBtn).click(function() {
+		player1.name = $("#player1Name").val();
+		player2.name = $("#player2Name").val();
+		
+    let player1Select = $("#player1Select").find(":selected").val();
+    player1.type = player1Select;
+
+    let player2Select = $("#player2Select").find(":selected").val();
+    player2.type = player2Select;
+
+		console.log("player values", player1, player2);
 	});
-	let robotData = "";
-
-	for (let i = 0; i < robots.length; i++) {
-		let currentRobot = robots[i];
-
-		robotData += "<div></div>";
-	}
-	robotContent.html(robotData);
-});
+});	
