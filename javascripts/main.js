@@ -1,11 +1,10 @@
 "use strict";
 
 $(document).ready(function() {
-	console.log("jquery working");
 	let robotContent = $("#robots");
 	let robots = [];
 
-	function getRobots() {
+	function RobotsPopulate() {
 		return new Promise((resolve, reject) => {
 			$.ajax({
 				url: "../robots.json"
@@ -16,16 +15,15 @@ $(document).ready(function() {
 			})
 		})
 	}
-	getRobots().then(function(dataPass) {
+	RobotsPopulate().then(function(dataPass) {
 		console.log(dataPass)
 	});
-		let robotData = "";
-		var currentRobot;
+	let robotData = "";
 
-		for (let i = 0; i < robots.length; i++) {
-			currentRobot = robots[i];
+	for (let i = 0; i < robots.length; i++) {
+		let currentRobot = robots[i];
 
-			robotData += `<div>Robots</div>`;
-		}
-		robotContent.html(robotData)
+		robotData += "<div></div>";
+	}
+	robotContent.html(robotData);
 });
