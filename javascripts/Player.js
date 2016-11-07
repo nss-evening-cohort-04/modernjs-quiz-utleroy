@@ -2,7 +2,6 @@
 
 var Battledome = Battledome || {};
 Battledome.BattleBot = {};
-let fightview = {};
 
 Battledome.BattleBot.Player1 = function(name1) {
   this.type = null;
