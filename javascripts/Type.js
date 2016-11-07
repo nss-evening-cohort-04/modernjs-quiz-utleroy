@@ -12,6 +12,7 @@ Battledome.Arena.Drone = function() {
   this.name = "Drone";
   this.healthBonus = this.healthBonus + 25;
   this.strengthBonus = this.strengthBonus + 30;
+  this.model_specialty = flamethrower;
 };
 Battledome.Arena.Drone.prototype = new Battledome.Arena.Robot();
 
