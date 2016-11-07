@@ -2,10 +2,9 @@ body {
 	background-color: lightgrey;
 }
 
-#container {
+.container {
 	width: 400px;
-	margin: 0 auto;
-
+	margin: 25px auto;
 }
 
 .text {
@@ -13,8 +12,10 @@ body {
 }
 
 #fightResults {
-	height: 300px;
+	padding: 20px;
+	height: 200px;
 	background-color: grey;
 	margin-top: 25px;
 	border-radius: 10px;
 }
+
