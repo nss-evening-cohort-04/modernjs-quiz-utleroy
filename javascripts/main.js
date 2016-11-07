@@ -7,11 +7,29 @@ $(document).ready(function() {
 	let player1 = {};
 	let player2 = {};
 
-  let PlayerName = "";
-  let PlayerType = "";
-  let WeaponName = "";
-  let FightBtn = $(".fight-button");
-  
+	let PlayerName = "";
+	let PlayerType = "";
+	let WeaponName = "";
+	let FightBtn = $(".fight-button");
+	let EnterBtn = $(".enter-button");
+
+	$(EnterBtn).on("click", function() {
+
+		player1Name = $("#player1Name").val();
+		player2Name = $("#player2Name").val();
+
+		let player1Select = $("#player1Select").find(":selected").val();
+		player1.type = player1Select;
+
+		let player2Select = $("#player2Select").find(":selected").val();
+		player2.robot = player2Select;
+
+		console.log("player 1 name value", player1Name);
+		console.log("player 2 name value", player2Name);
+		console.log("player 1 select value", player1Select);
+
+	});
+
 	let player1options = $("#player1Select");
 
 	player1options.html(`	<option>Robot</option>
@@ -24,62 +42,48 @@ $(document).ready(function() {
 		<option>Tank</option>
 		<option>ATV</option>`);
 
-	player1Name = $("#player1Name").val();
-	player2Name = $("#player2Name").val();
+	$("#player-setup").show();
 
-	let player1Select = $("#player1Select").find(":selected").val();
-	player1.type = player1Select;
+	$(".card__link").click(function(e) {
+		var nextCard = $(this).attr("next");
+		var moveAlong = false;
 
-	let player2Select = $("#player2Select").find(":selected").val();
-	player2.robot = player2Select;
+		switch (nextCard) {
+			case "card--class":
+			PlayerName = $("#player-name").val();
+			moveAlong = (PlayerName !== "");
+			break;
+			case "card--weapon":
+			moveAlong = (PlayerType !== "");
+			break;
+			case "card--battleground":
+			moveAlong = (WeaponName !== "");
+			break;
+		}
+		console.log(PlayerName);
 
-	console.log("player 1 name value", player1Name);
-	console.log("player 2 name value", player2Name);
-	console.log("player 1 select value", player1Select);
-  
- 
-  $("#player-setup").show();
+		if (moveAlong) {
+			$(".card").hide();
+			$("." + nextCard).show();
+		}
+	});
 
-  $(".card__link").click(function(e) {
-    var nextCard = $(this).attr("next");
-    var moveAlong = false;
+	$(FightBtn).on("click", function() {
+		fight();
+	});
 
-    switch (nextCard) {
-      case "card--class":
-        PlayerName = $("#player-name").val();
-        moveAlong = (PlayerName !== "");
-        break;
-      case "card--weapon":
-        moveAlong = (PlayerType !== "");
-        break;
-        case "card--battleground":
-        moveAlong = (WeaponName !== "");
-        break;
-    }
-        console.log(PlayerName);
+	function fight(){
+		var player1 = new Battlebot.Combatants.Human();
+		player1.generateClass();
+		player1.setWeapon(new MudSlinger());
+		console.log(player1.toString());
 
-    if (moveAlong) {
-      $(".card").hide();
-      $("." + nextCard).show();
-    }
-  });
+		var player2 = new Battlebot.Combatants.Orc();
+		player2.generateClass();
+		player2.setWeapon(new FlameThrower());
+		console.log(player2.toString());
+	}
 
-  $(FightBtn).on("click", function() {
-    fight();
-  });
-  
-  function fight(){
-    var player1 = new Gauntlet.Combatants.Human();
-player1.generateClass();
-player1.setWeapon(new MudSlinger());
-console.log(player1.toString());
-    
-  var player2 = new Gauntlet.Combatants.Orc();
-player2.generateClass();
-player2.setWeapon(new FlameThrower());
-console.log(player2.toString());
-  }
-  
 
 });
 
@@ -127,7 +131,7 @@ console.log(player2.toString());
 
 // 		<h3>${player1Select}</h3>
 // 		<h1>${Battledome.BattleBot.Player1()}</h1> <br>
-		
+
 // 		Intitial Player2 Health: <br>
 // 		<h1>${Battledome.BattleBot.Player2()}</h1> <br>
 // 		`

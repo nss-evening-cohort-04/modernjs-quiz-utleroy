@@ -1,10 +1,10 @@
 "use strict";
 
-var Gauntlet = Gauntlet || {};
-Gauntlet.GuildHall = {};
+var Battlebot = Battlebot || {};
+Battlebot.Dome = {};
 
 
-Gauntlet.GuildHall.PlayerClass = function() {
+Battlebot.Dome.PlayerClass = function() {
   this.name = "Beggar";
   this.healthBonus = 0;
   this.strengthBonus = 0;
@@ -16,34 +16,34 @@ Gauntlet.GuildHall.PlayerClass = function() {
   }
 };
 
-Gauntlet.GuildHall.Fighter = function() {
+Battlebot.Dome.Fighter = function() {
   this.healthBonus = 20;
   this.strengthBonus = 10;
 };
-Gauntlet.GuildHall.Fighter.prototype = new Gauntlet.GuildHall.PlayerClass();
+Battlebot.Dome.Fighter.prototype = new Battlebot.Dome.PlayerClass();
 
 
-Gauntlet.GuildHall.ViperDrone = function() {
+Battlebot.Dome.ViperDrone = function() {
   this.name = "viper drone";
   this.healthBonus = this.healthBonus + 25;
   this.strengthBonus = this.strengthBonus + 30;
 };
-Gauntlet.GuildHall.ViperDrone.prototype = new Gauntlet.GuildHall.Fighter();
+Battlebot.Dome.ViperDrone.prototype = new Battlebot.Dome.Fighter();
 
 
-Gauntlet.GuildHall.StealthDrone = function() {
+Battlebot.Dome.StealthDrone = function() {
   this.name = "stealth drone";
   this.healthBonus = this.healthBonus + 20;
   this.strengthBonus = this.strengthBonus + 10;
 };
-Gauntlet.GuildHall.StealthDrone.prototype = new Gauntlet.GuildHall.Fighter();
+Battlebot.Dome.StealthDrone.prototype = new Battlebot.Dome.Fighter();
 
-Gauntlet.GuildHall.ViperTank = function() {
+Battlebot.Dome.ViperTank = function() {
   this.name = "viper tank";
   this.healthBonus = this.healthBonus + 20;
   this.strengthBonus = this.strengthBonus + 10;
 };
-Gauntlet.GuildHall.ViperTank.prototype = new Gauntlet.GuildHall.Fighter();
+Battlebot.Dome.ViperTank.prototype = new Battlebot.Dome.Fighter();
 
 
 // var Battledome = Battledome || {};

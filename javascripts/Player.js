@@ -1,13 +1,13 @@
 "use strict";
 
-var Gauntlet = Gauntlet || {};
-Gauntlet.Combatants = {};
+var Battlebot = Battlebot || {};
+Battlebot.Combatants = {};
 
 /*
-  Define the base object for any player of Gauntlet,
+  Define the base object for any player of Battlebot,
   whether a human player or a monster.
  */
-Gauntlet.Combatants.Player = function(name) {
+Battlebot.Combatants.Player = function(name) {
   this.species = null;
 
   this.class = null;
@@ -40,11 +40,11 @@ Gauntlet.Combatants.Player = function(name) {
   };
 };
 
-Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
+Battlebot.Combatants.Player.prototype.setWeapon = function(newWeapon) {
   this.weapon = newWeapon;
 }
 
-Gauntlet.Combatants.Player.prototype.generateClass = function() {
+Battlebot.Combatants.Player.prototype.generateClass = function() {
   // Get a random index from the allowed classes array
   var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
 
@@ -52,7 +52,7 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
   var randomClass = this.allowedClasses[random];
 
   // Composes the corresponding player class into the player object
-  this.class = new Gauntlet.GuildHall[randomClass]();
+  this.class = new Battlebot.Dome[randomClass]();
 
   // Add the health bonus
   this.health += this.class.healthBonus;
@@ -63,7 +63,7 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
   Define the base properties for a human in a 
   constructor function.
  */
-Gauntlet.Combatants.Human = function() {
+Battlebot.Combatants.Human = function() {
   var randomSkin;
 
   this.species = "Player 1";
@@ -75,24 +75,24 @@ Gauntlet.Combatants.Human = function() {
 
   this.allowedClasses = ["ViperDrone", "StealthDrone", "ViperTank"];
 };
-Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
+Battlebot.Combatants.Human.prototype = new Battlebot.Combatants.Player();
 
 
 /*
   Define the base properties for a monster in a 
   constructor function.
  */
-Gauntlet.Combatants.Monster = function() {
+Battlebot.Combatants.Monster = function() {
   this.health = this.health - 30;
   this.intelligence = this.intelligence -20;
   this.strength = this.strength + 30;
 };
 
-Gauntlet.Combatants.Monster.prototype = new Gauntlet.Combatants.Player();
+Battlebot.Combatants.Monster.prototype = new Battlebot.Combatants.Player();
 
 
 
-Gauntlet.Combatants.Orc = function() {
+Battlebot.Combatants.Orc = function() {
   this.health = this.health + 20;
   this.species = "Player 2";
   this.allowedClasses = ["ViperTank","StealthDrone"];
@@ -105,12 +105,12 @@ Gauntlet.Combatants.Orc = function() {
     var randomClass = this.allowedClasses[random];
 
     // Composes the corresponding player class into the player object
-    this.class = new Gauntlet.GuildHall[randomClass]();
+    this.class = new Battlebot.Dome[randomClass]();
     return this.class;
   }
 };
 
-Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
+Battlebot.Combatants.Orc.prototype = new Battlebot.Combatants.Monster();
 
 var Weapon = function() {
   this.name = "empty";
