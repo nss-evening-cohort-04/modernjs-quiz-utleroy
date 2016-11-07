@@ -24,6 +24,8 @@ $(document).ready(function() {
 		let player2Select = $("#player2Select").find(":selected").val();
 		player2.robot = player2Select;
 
+		// $("div").removeClass("select-elements");
+
 		console.log("player 1 name value", player1Name);
 		console.log("player 2 name value", player2Name);
 		console.log("player 1 select value", player1Select);
@@ -44,35 +46,7 @@ $(document).ready(function() {
 
 	$("#player-setup").show();
 
-	$(".card__link").click(function(e) {
-		var nextCard = $(this).attr("next");
-		var moveAlong = false;
-
-		switch (nextCard) {
-			case "card--class":
-			PlayerName = $("#player-name").val();
-			moveAlong = (PlayerName !== "");
-			break;
-			case "card--weapon":
-			moveAlong = (PlayerType !== "");
-			break;
-			case "card--battleground":
-			moveAlong = (WeaponName !== "");
-			break;
-		}
-		console.log(PlayerName);
-
-		if (moveAlong) {
-			$(".card").hide();
-			$("." + nextCard).show();
-		}
-	});
-
-	$(FightBtn).on("click", function() {
-		fight();
-	});
-
-	function fight(){
+	$(FightBtn).on("click", function(fight) {
 		var player1 = new Battlebot.Combatants.Human();
 		player1.generateClass();
 		player1.setWeapon(new MudSlinger());
@@ -82,7 +56,8 @@ $(document).ready(function() {
 		player2.generateClass();
 		player2.setWeapon(new FlameThrower());
 		console.log(player2.toString());
-	}
+		return fight;
+	});
 
 
 });

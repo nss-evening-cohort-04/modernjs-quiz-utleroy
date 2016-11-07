@@ -64,7 +64,7 @@ Battlebot.Combatants.Player.prototype.generateClass = function() {
   constructor function.
  */
 Battlebot.Combatants.Human = function() {
-  var randomSkin;
+  var randomType;
 
   this.species = "Player 1";
   this.intelligence = this.intelligence + 20;
