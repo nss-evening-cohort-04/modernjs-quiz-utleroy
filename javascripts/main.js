@@ -34,18 +34,22 @@ $(document).ready(function() {
 		Champion2.weapon = new Battlebot.weapons[player2Weapon]();
 		
 
-		let output = fightDisplay.html(`
+		fightDisplay.html(`
+			<div class="left">
 			<h3>${Champion1.playerName}</h3>
 			<div> is driving a: ${Champion1.robotName}</div>
 			<div> with a: ${player1Weapon}</div>
 			<div>Starting Health: ${Champion1.health}</div>
 			<div>Strength: ${Champion1.strength}</div>
+			</div>
 
+			<div class="right">
 			<h3>${Champion2.playerName}</h3>
 			<div> is driving a: ${Champion2.robotName}</div>
 			<div> with a: ${player2Weapon}</div>
 			<div>Starting Health: ${Champion2.health}</div>
 			<div>Strength: ${Champion2.strength}</div>
+			</div>
 			`);
 	});
 
@@ -79,8 +83,8 @@ $(document).ready(function() {
 
 	let player2Weapon = $("#player2Weapon");
 	player2Weapon.html(`	<option disabled>select your weapon</option>
-		<option>MudSlinger</option>
 		<option>FlameThrower</option>
+		<option>MudSlinger</option>
 		<option>MissileLauncher</option>
 		<option>Gun</option>
 		<option>Stones</option>
@@ -91,11 +95,11 @@ $(document).ready(function() {
 	let fightDisplay = $("#fightResults");
 	$(FightBtn).on("click", function() {
 
-		Champion1.health -= Champion2.weapon.damage;
-		Champion2.health -= Champion1.weapon.damage;
+		$(fightDisplay).append(`<h5 class ="fightDiv">Player 1 health after attack: </h5>`, Champion1.health -= Champion2.weapon.damage, '<br>');
+		$(fightDisplay).append(`<h5>Player 2 health after attack: </h5>`, Champion2.health -= Champion1.weapon.damage, '<br>');
 
-		if(Champion1.health <= 0 || Champion2.health <= 0) {
-			$(fightDisplay).append("Winner!");
+		if(Champion1.health <= 0 || Champion2.health <=0) {
+			$(fightDisplay).append(`<h3>Player 1 loses!</h3>`);
 		}
 
 	});

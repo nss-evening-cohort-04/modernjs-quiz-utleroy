@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-	width: 400px;
+	width: 700px;
 	margin: 25px auto;
 }
 
@@ -13,7 +13,7 @@ body {
 
 #fightResults {
 	padding: 20px;
-	height: 260px;
+	height: 500px;
 	background-color: grey;
 	margin-top: 25px;
 	border-radius: 10px;
@@ -23,3 +23,14 @@ body {
 	visibility: visible;
 }
 
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.fightDiv {
+	margin: auto;
+}

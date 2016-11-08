@@ -20,13 +20,13 @@ Battlebot.weapons.CloseRange.prototype = new Battlebot.weapons.Weapon();
 
 Battlebot.weapons.MudSlinger = function() {
   this.name = "Mud Slinger";
-  this.damage = 4 + this.bonusDamage;
+  this.damage = 35 + this.bonusDamage;
 };
 Battlebot.weapons.MudSlinger.prototype = new Battlebot.weapons.CloseRange();
 
 Battlebot.weapons.FlameThrower = function() {
   this.name = "Flame Thrower";
-  this.damage = 14 + this.bonusDamage;
+  this.damage = 31 + this.bonusDamage;
 };
 Battlebot.weapons.FlameThrower.prototype = new Battlebot.weapons.CloseRange();
 
