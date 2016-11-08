@@ -10,7 +10,6 @@ $(document).ready(function() {
 
 	$(EnterBtn).on("click", function() {
 
-
 		player1Name = $("#player1Name").val();
 		player2Name = $("#player2Name").val();
 
@@ -53,43 +52,6 @@ $(document).ready(function() {
 			`);
 	});
 
-	let player1options = $("#player1Select");
-	player1options.html(`	<option disabled>select your robot</option>
-		<option>Viper</option>
-		<option>Stealth</option>
-		<option>Viper1</option>
-		<option>Stealth1</option>
-		<option>Viper2</option>
-		<option>Stealth2</option>
-		`);
-
-	let player2options = $("#player2Select");
-	player2options.html(`	<option disabled>select your robot</option>
-		<option>Viper</option>
-		<option>Stealth</option>
-		<option>Viper1</option>
-		<option>Stealth1</option>
-		<option>Viper2</option>
-		<option>Stealth2</option>`);
-
-	let player1Weapon = $("#player1Weapon");
-	player1Weapon.html(`	<option disabled>select your weapon</option>
-		<option>MudSlinger</option>
-		<option>FlameThrower</option>
-		<option>MissileLauncher</option>
-		<option>Gun</option>
-		<option>Stones</option>
-		<option>Bubbles</option>`);
-
-	let player2Weapon = $("#player2Weapon");
-	player2Weapon.html(`	<option disabled>select your weapon</option>
-		<option>FlameThrower</option>
-		<option>MudSlinger</option>
-		<option>MissileLauncher</option>
-		<option>Gun</option>
-		<option>Stones</option>
-		<option>Bubbles</option>`);
-
 	$("#player-setup").show();
 
 	let fightDisplay = $("#fightResults");
@@ -98,10 +60,15 @@ $(document).ready(function() {
 		$(fightDisplay).append(`<h5 class ="fightDiv">Player 1 health after attack: </h5>`, Champion1.health -= Champion2.weapon.damage, '<br>');
 		$(fightDisplay).append(`<h5>Player 2 health after attack: </h5>`, Champion2.health -= Champion1.weapon.damage, '<br>');
 
-		if(Champion1.health <= 0 || Champion2.health <=0) {
+		if(Champion1.health <= 20) {
 			$(fightDisplay).append(`<h3>Player 1 loses!</h3>`);
 		}
 
+		if(Champion2.health <= 20) {
+			$(fightDisplay).append(`<h3>Player 2 loses!</h3>`);
+		}
+
+		
 	});
 });
 
