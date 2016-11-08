@@ -11,13 +11,16 @@
   <a class="navbar-brand" href="#">Robot Battledome</a>
 </nav>
 <article class="container">
-<form class="form">
+<div class="form">
 <div class="select-elements">
   <div class="form-group text">
     <label for="player1Name">PLAYER 1</label>
     <input type="" class="form-control" id="player1Name" placeholder="enter name">
       <label for="player1Select"></label>
       <select id="player1Select" class="form-control">
+      </select>
+      <label for="player1Weapon"></label>
+      <select id="player1Weapon" class="form-control">
       </select>
     </div>
   <div class="form-group text">
@@ -27,6 +30,10 @@
       <select id="player2Select" class="form-control">
         
       </select>
+      <label for="player2Weapon"></label>
+      <select id="player2Weapon" class="form-control">
+        
+      </select>
   </div>
   </div>
   <button type="submit" class="btn btn-primary enter-button">Enter Names</button>
@@ -34,7 +41,7 @@
     
   </div>
   <button type="submit" id="" class="btn btn-primary fight-button">ATTACK!!</button>
-</form>
+</div>
 </article>
 
 
@@ -45,8 +52,8 @@
 	<script src="/lib/bower_components/jquery/dist/jquery.min.js"></script>	
 
 
-	<script src="javascripts/Player.js"></script>
+	<script src="javascripts/Attack.js"></script>
+	<script src="javascripts/Robots.js"></script>
   <script src="javascripts/main.js"></script>
-	<script src="javascripts/Type.js"></script>
 </body>
 </html>
