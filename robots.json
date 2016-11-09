@@ -1,0 +1,27 @@
+{
+  "robots": [{
+    "id": 0,
+    "name": "drone",
+    "type": "ariel",
+    "function": {
+      "func1": "mow",
+      "func2": "blow"
+    }
+  }, {
+    "id": 1,
+    "name": "ATV",
+    "type": "ground",
+    "function": {
+      "func1": "dismantle",
+      "func2": "tread"
+    }
+  }, {
+    "id": 2,
+    "name": "bipedal",
+    "type": "ground",
+    "function": {
+      "func1": "roll",
+      "func2": "fall"
+    }
+  }]
+}
